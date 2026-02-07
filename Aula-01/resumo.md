@@ -1,7 +1,3 @@
-Aqui está o resumo da aula estruturado em Markdown, mantendo a formatação e o estilo visual do texto original, ideal para uma página de revisão ou wiki da disciplina.
-
----
-
 # Resumo da Aula 01 — Apresentação e Contextualização
 
 **Disciplina:** Integração Vertical e Horizontal
