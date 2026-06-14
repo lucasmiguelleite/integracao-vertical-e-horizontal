@@ -1,0 +1,140 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{abntex2cite}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Integração ERP/MES e Gestão de Riscos em Projetos Industriais}}\\[1cm]
+  Sorocaba -- 20/03/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo analisa a integração entre os sistemas ERP (\textit{Enterprise Resource Planning}) e MES (\textit{Manufacturing Execution System}) no contexto da Indústria 4.0, abrangendo tanto a integração vertical (sensores $\rightarrow$ CLP $\rightarrow$ SCADA $\rightarrow$ MES $\rightarrow$ ERP) quanto a horizontal (fornecedores $\leftrightarrow$ produção $\leftrightarrow$ logística $\leftrightarrow$ clientes). Adicionalmente, aborda a gestão de projetos industriais conforme o PMBOK, com ênfase na gestão de riscos: identificação de riscos industriais, técnicas de levantamento (brainstorming, checklists, análise histórica) e estratégias de resposta (evitar, mitigar, transferir, aceitar). Conclui-se que a integração de sistemas, aliada a uma gestão de riscos estruturada, é fundamental para a competitividade e resiliência da indústria moderna.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} ERP. MES. Integração Industrial. Gestão de Riscos. PMBOK. Indústria 4.0.
+
+\newpage
+
+\section{Introdução}
+
+Na Indústria 4.0, os sistemas industriais trabalham de forma integrada para melhorar a comunicação entre máquinas, operadores e setores da empresa. A integração entre ERP e MES permite que o planejamento empresarial esteja conectado à execução da produção, possibilitando maior produtividade, rastreabilidade, automação e tomada de decisão baseada em dados em tempo real \cite{groover2011}. Simultaneamente, projetos de integração industrial requerem gestão estruturada de riscos para garantir segurança e previsibilidade.
+
+\section{Integração Industrial}
+
+A integração industrial conecta máquinas, sistemas e setores da empresa, permitindo troca contínua de informações. Sem integração, processos ficam isolados, dados inconsistentes e decisões se tornam mais lentas. Com integração, informações circulam em tempo real, setores trabalham sincronizados e a produção se torna mais eficiente \cite{caiçara2015}.
+
+\subsection{Integração Vertical}
+
+A integração vertical conecta todos os níveis da automação industrial: Sensores $\rightarrow$ CLP $\rightarrow$ SCADA $\rightarrow$ MES $\rightarrow$ ERP. Permite que dados do chão de fábrica cheguem até a gestão estratégica, possibilitando que decisões gerenciais sejam baseadas na realidade da produção \cite{moraes2007}.
+
+\subsection{Integração Horizontal}
+
+A integração horizontal conecta diferentes setores e empresas da cadeia produtiva: Fornecedor $\leftrightarrow$ Produção $\leftrightarrow$ Logística $\leftrightarrow$ Cliente. Isso melhora a comunicação, a logística e o planejamento operacional de ponta a ponta.
+
+\section{ERP e MES: Trabalho Integrado}
+
+\subsection{ERP --- Gestão Empresarial}
+
+O ERP é responsável pelo gerenciamento estratégico da empresa: controle financeiro, estoque, compras, vendas, logística e planejamento da produção. Define o que produzir, quanto e quando. Atua no nível estratégico da organização \cite{santos2024}.
+
+\subsection{MES --- Execução da Produção}
+
+O MES atua diretamente no chão de fábrica: libera ordens de produção, monitora máquinas, controla operadores, registra produtividade e rastreia produtos. Transforma o planejamento do ERP em produção real.
+
+\subsection{Fluxo Completo de Integração}
+
+O fluxo ERP+MES em uma produção típica segue seis etapas:
+
+\begin{enumerate}
+  \item \textbf{Pedido do cliente:} O ERP recebe um pedido de produção.
+  \item \textbf{Planejamento:} O ERP verifica estoque, calcula materiais e gera ordem de produção.
+  \item \textbf{Execução:} O MES organiza a produção, define máquinas e distribui tarefas.
+  \item \textbf{Controle automático:} CLPs e sensores executam os processos industriais.
+  \item \textbf{Supervisão:} O SCADA mostra produção em tempo real, alarmes, falhas e velocidade das máquinas.
+  \item \textbf{Retorno ao ERP:} O MES envia quantidade produzida, custos reais, tempo de produção, perdas e falhas.
+\end{enumerate}
+
+\section{Benefícios da Integração}
+
+A integração industrial traz ganhos operacionais e estratégicos \cite{cardoso2021}:
+
+\begin{itemize}
+  \item \textbf{Redução de custos:} Menos desperdícios, menor retrabalho e melhor aproveitamento de recursos.
+  \item \textbf{Rastreabilidade:} Identificação completa de lote, operador, máquina e horário de fabricação.
+  \item \textbf{Agilidade operacional:} Informações circulam rapidamente, permitindo respostas mais rápidas às mudanças do mercado.
+  \item \textbf{Decisões baseadas em dados:} Sistemas fornecem informações em tempo real, aumentando a precisão gerencial.
+  \item \textbf{Maior produtividade:} Automação reduz falhas humanas e melhora o desempenho operacional.
+\end{itemize}
+
+\section{Gestão de Projetos Industriais}
+
+Projetos industriais de integração precisam de organização, planejamento e controle. Segundo o PMI (\textit{Project Management Institute}), projeto é um esforço temporário criado para gerar um produto ou serviço único, com início e fim definidos, evolução progressiva e objetivo específico. O ciclo de vida do projeto compreende: iniciação, planejamento, execução, monitoramento e encerramento.
+
+\section{Gestão de Riscos}
+
+O PMBOK (\textit{Project Management Body of Knowledge}) reúne boas práticas para o gerenciamento de riscos em projetos, com o objetivo de reduzir ameaças, evitar falhas, minimizar prejuízos e aumentar oportunidades \cite{caiçara2015}.
+
+\subsection{Identificação dos Riscos}
+
+Riscos industriais típicos incluem falhas em máquinas, atraso de fornecedores, falhas de comunicação, erros humanos, problemas de integração entre sistemas e falhas em servidores. As técnicas utilizadas para identificação são:
+
+\begin{itemize}
+  \item \textbf{Brainstorming:} Discussão coletiva de possíveis riscos.
+  \item \textbf{Checklists:} Listas de verificação padronizadas.
+  \item \textbf{Análise de histórico:} Avaliação de falhas anteriores.
+  \item \textbf{Reuniões com especialistas:} Identificação baseada em experiência técnica.
+\end{itemize}
+
+\subsection{Respostas aos Riscos}
+
+Após a identificação, a empresa define estratégias de resposta (Tabela~\ref{tab:riscos}).
+
+\begin{table}[htb]
+  \centering
+  \caption{Estratégias de resposta a riscos industriais.}
+  \label{tab:riscos}
+  \begin{tabular}{p{3.5cm}p{4cm}p{6cm}}
+    \toprule
+    \textbf{Estratégia} & \textbf{Descrição} & \textbf{Exemplo} \\
+    \midrule
+    Evitar & Eliminar a causa do risco & Trocar equipamento com alto índice de falhas \\
+    Mitigar & Reduzir impacto ou probabilidade & Realizar manutenção preventiva \\
+    Transferir & Passar responsabilidade para terceiros & Contratar seguro ou suporte especializado \\
+    Aceitar & Reconhecer e monitorar & Aceitar pequenas oscilações produtivas \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusão}
+
+A integração entre ERP, MES e gestão de riscos é fundamental para a indústria moderna. Com sistemas integrados e gestão de riscos estruturada, a empresa consegue melhorar produtividade, reduzir falhas, aumentar controle operacional, tomar decisões mais rápidas, melhorar rastreabilidade e aumentar competitividade. Na Indústria 4.0, integração, automação e análise de dados são essenciais para processos mais inteligentes, eficientes e seguros \cite{schwab2016}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

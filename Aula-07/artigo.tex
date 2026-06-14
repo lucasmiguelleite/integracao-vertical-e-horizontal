@@ -1,0 +1,113 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{abntex2cite}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Sistemas MES na Integração Industrial}}\\[1cm]
+  Sorocaba -- 13/03/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo analisa o papel dos Sistemas MES (\textit{Manufacturing Execution System}) na integração industrial, posicionando-os como a ponte entre o planejamento estratégico do ERP e a execução das máquinas no chão de fábrica. O estudo aborda as principais funções do MES --- gestão de ordens de produção, alocação de recursos, coleta de dados, controle de qualidade, rastreabilidade e cálculo de indicadores como o OEE (\textit{Overall Equipment Effectiveness}) ---, as integrações com ERP, SCADA/CLP e BI (\textit{Business Intelligence}), e os benefícios e desafios da implantação. Conclui-se que o MES é componente indispensável para que a fábrica se torne integrada, rastreável e orientada por dados, constituindo a base para a Indústria 4.0.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} MES. Execução da Manufatura. OEE. Rastreabilidade. Indústria 4.0. ERP.
+
+\newpage
+
+\section{Introdução}
+
+Em uma indústria moderna, diferentes sistemas trabalham de forma coordenada: sensores e atuadores medem e executam ações físicas, CLPs controlam máquinas automaticamente, SCADA supervisiona e monitora processos, ERPs gerenciam a empresa, e os Sistemas MES (\textit{Manufacturing Execution System}) gerenciam a execução da produção em tempo real \cite{groover2011}. O MES fica entre o ERP e a automação, conectando gestão e fábrica, transformando ordens planejadas no ERP em atividades reais no chão de fábrica.
+
+\section{Conceito de MES}
+
+O MES é o software responsável por acompanhar, controlar e registrar a produção enquanto ela acontece. Ele responde a questões operacionais fundamentais: o que está sendo produzido? Em qual máquina? Qual operador está trabalhando? Quantas peças foram feitas? Houve parada ou falha? A meta está sendo atingida? \cite{caiçara2015}.
+
+\section{Fluxo do MES na Indústria}
+
+O fluxo de dados segue uma hierarquia clara: o ERP realiza o planejamento geral (pedidos e estoque) e envia as ordens ao MES. O MES coordena a execução da produção (ordens, qualidade, indicadores, OEE) e interage tanto com o SCADA (supervisão) quanto com o banco de dados (histórico). O SCADA, por sua vez, comunica-se com os CLPs e sensores que controlam as máquinas e o processo físico. O ERP planeja, o MES coordena, o SCADA monitora e o CLP executa \cite{moraes2007}.
+
+\section{Principais Funções do MES}
+
+\subsection{Ordens de Produção}
+
+O MES é responsável por liberar, iniciar e finalizar ordens de produção, acompanhando metas em tempo real. Quando uma máquina quebra, o MES redireciona automaticamente a produção para outra máquina disponível.
+
+\subsection{Gestão de Recursos}
+
+O MES identifica máquinas disponíveis, operadores habilitados e materiais necessários, otimizando a alocação de recursos por turno.
+
+\subsection{Coleta de Dados}
+
+O sistema recebe dados contínuos de sensores, máquinas e operadores, alimentando sua base de dados em tempo real.
+
+\subsection{Qualidade}
+
+O MES gerencia inspeções, registra defeitos e refugos, e controla a aprovação de lotes, garantindo que apenas produtos conformes cheguem ao cliente.
+
+\subsection{Rastreabilidade}
+
+Cada produto é rastreado completamente: lote de matéria-prima utilizado, máquina de produção, horário de fabricação e operador responsável. Esta funcionalidade é essencial para conformidade regulatória e recall de produtos.
+
+\subsection{Indicadores de Desempenho}
+
+O MES calcula automaticamente indicadores como produtividade, tempo parado, taxa de defeitos e, principalmente, o OEE (\textit{Overall Equipment Effectiveness}), que mensura a eficiência global do equipamento combinando disponibilidade, desempenho e qualidade \cite{cardoso2021}.
+
+\section{Integrações Importantes}
+
+\subsection{ERP $\leftrightarrow$ MES}
+
+A troca entre ERP e MES inclui ordens de produção, consumo de materiais, quantidades produzidas e custos reais. O ERP envia o planejamento; o MES retorna os resultados da execução.
+
+\subsection{MES $\leftrightarrow$ SCADA/CLP}
+
+A comunicação com o nível de controle envolve status da máquina, alarmes, contadores e parâmetros de processo, permitindo que o MES tenha visibilidade em tempo real da operação.
+
+\subsection{MES $\leftrightarrow$ BI}
+
+A integração com sistemas de BI (\textit{Business Intelligence}) permite a criação de painéis e relatórios para análise gerencial, transformando dados operacionais em informações estratégicas.
+
+\section{Exemplo Prático: Fábrica de Bebidas}
+
+Em uma fábrica de bebidas com pedido de 10.000 garrafas: o ERP recebe o pedido e gera a ordem de produção; o MES define a linha e o turno; o CLP controla o enchimento; o SCADA mostra a produção em tempo real; o MES registra perdas e desempenho; e o ERP recebe o resultado final, atualizando estoque e financeiro.
+
+\section{Benefícios e Desafios}
+
+\subsection{Benefícios}
+
+A implementação de MES traz produção visível em tempo real, redução de desperdício, decisões mais rápidas, dados confiáveis, melhor produtividade e base para a Indústria 4.0 \cite{schwab2016}.
+
+\subsection{Desafios}
+
+Os principais desafios incluem a integração com sistemas antigos (\textit{legacy}), treinamento de equipes, padronização de dados e investimento em rede e infraestrutura.
+
+\section{Conclusão}
+
+O MES é a ponte entre o planejamento do ERP e a execução das máquinas. Sem ele, a empresa planeja e produz de forma desconectada. Com ele, a fábrica se torna integrada, rastreável e orientada por dados. O MES é componente indispensável para a transformação digital da manufatura e para a consecução dos objetivos da Indústria 4.0 \cite{santos2024}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

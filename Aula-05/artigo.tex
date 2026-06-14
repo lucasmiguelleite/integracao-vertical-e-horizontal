@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{abntex2cite}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Pirâmide da Automação na Integração Vertical Industrial}}\\[1cm]
+  Sorocaba -- 27/02/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo analisa a Pirâmide da Automação como modelo hierárquico de organização dos sistemas industriais, fundamental para a compreensão da integração vertical. Cada nível da pirâmide é detalhado com suas funções, dispositivos e exemplos práticos: Nível~1 (Sensores e Atuadores), Nível~2 (Controle -- CLP/SDCD), Nível~3 (Supervisão -- SCADA/IHM), Nível~4 (Execução -- MES) e Nível~5 (Gestão -- ERP). A integração entre os níveis é demonstrada por meio de um exemplo completo em uma fábrica de refrigerante, evidenciando como dados fluem do chão de fábrica até a gestão estratégica e como problemas detectados no nível mais baixo propagam-se por toda a hierarquia. Conclui-se que a Pirâmide da Automação é essencial para garantir que a indústria funcione como um sistema único, conectado e inteligente.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} Pirâmide da Automação. CLP. SCADA. MES. ERP. Integração Vertical.
+
+\newpage
+
+\section{Introdução}
+
+A Pirâmide da Automação representa a organização dos sistemas industriais em níveis hierárquicos, onde cada nível possui uma função específica e todos trabalham de forma integrada \cite{moraes2007}. A lógica fundamental estabelece que os níveis baixos executam o processo, os intermediários controlam e monitoram, e os níveis superiores planejam e decidem. Este modelo é a base conceitual para a compreensão da integração vertical industrial \cite{groover2011}.
+
+\section{Nível 1 --- Sensores e Atuadores (Chão de Fábrica)}
+
+Este é o nível mais básico da pirâmide, responsável pela coleta de dados do processo e pela execução de ações físicas.
+
+\subsection{Sensores (Entrada de Dados)}
+
+Os sensores medem variáveis físicas do processo, como temperatura, pressão, nível, velocidade e proximidade. Em uma linha de produção, um sensor detecta a presença de uma peça; em um sistema térmico, mede a temperatura do ambiente; na indústria automotiva, identifica a posição do veículo na linha \cite{lara2021}.
+
+\subsection{Atuadores (Ação)}
+
+Os atuadores executam os comandos recebidos: motores, válvulas, esteiras e cilindros pneumáticos. Quando um sensor detecta uma temperatura de 85\textdegree C, o atuador aciona o sistema de resfriamento. Este nível não toma decisões complexas; apenas mede e executa.
+
+\section{Nível 2 --- Controle (CLP/SDCD)}
+
+O nível de controle é responsável por tomar decisões automáticas com base nos dados recebidos dos sensores, processando lógica de controle e enviando comandos aos atuadores \cite{albuquerque2009}.
+
+\subsection{Dispositivos Principais}
+
+Os principais dispositivos deste nível são o CLP (Controlador Lógico Programável), o SDCD (Sistema Digital de Controle Distribuído) e as máquinas CNC. O CLP executa decisões rápidas e automáticas em escala de milissegundos. Exemplos incluem: controle de esteira (sensor detecta peça, CLP liga motor), controle automático de temperatura (se temperatura $>$ 80\textdegree C, ligar ventilador), e sistemas de segurança (sensor detecta sobrecarga, CLP desliga circuito).
+
+\section{Nível 3 --- Supervisão (SCADA/IHM)}
+
+O nível de supervisão é responsável por visualizar e monitorar o processo, permitindo a interação do operador com o sistema e o registro histórico de dados operacionais.
+
+\subsection{Ferramentas}
+
+As ferramentas deste nível são o SCADA (\textit{Supervisory Control and Data Acquisition}) e a IHM (\textit{Interface Homem-Máquina}). O SCADA permite ao operador visualizar a produção atual, temperaturas e status das máquinas, além de configurar alarmes (``máquina parada'', ``temperatura alta'') e registrar o histórico de produção por hora, falhas ocorridas e tempo de parada. O operador pode ainda realizar controle manual, ligando ou desligando máquinas e ajustando velocidades \cite{senai2014}.
+
+\section{Nível 4 --- MES (Execução da Produção)}
+
+O MES (\textit{Manufacturing Execution System}) é responsável por gerenciar a produção em tempo real, controlando ordens de produção, gerenciando recursos, monitorando desempenho e ajustando a produção conforme necessidade \cite{caiçara2015}.
+
+\subsection{Funções Principais}
+
+O MES define qual máquina utilizar e em qual ordem produzir. Quando uma máquina quebra, o MES redireciona a produção para outra máquina. Ele identifica qual operador está em cada máquina e calcula a produtividade por turno. Calcula indicadores como o OEE (\textit{Overall Equipment Effectiveness}) --- por exemplo, se a máquina ficou disponível por 8 horas mas produziu efetivamente por apenas 5 horas, o MES calcula a eficiência. Garante também a rastreabilidade completa do produto: lote, máquina, operador e horário.
+
+\section{Nível 5 --- ERP (Gestão)}
+
+O topo da pirâmide é ocupado pelo ERP (\textit{Enterprise Resource Planning}), responsável pela gestão estratégica da empresa: planejar produção, gerenciar recursos, controlar o financeiro e integrar todos os setores \cite{santos2024}.
+
+\subsection{Funções Estratégicas}
+
+Quando um cliente pede 5.000 peças, o ERP registra a venda, calcula o custo, verifica o estoque, gera a ordem de produção e a envia ao MES. Se o estoque está baixo, o ERP gera automaticamente um pedido ao fornecedor. O sistema identifica o produto mais vendido e o de maior lucro, permitindo que a empresa ajuste sua produção de forma estratégica.
+
+\section{Integração entre os Níveis: Exemplo Completo}
+
+Para ilustrar a integração, considera-se uma fábrica de refrigerante com produção de 10.000 garrafas:
+
+\begin{enumerate}
+  \item \textbf{ERP} recebe o pedido e gera a ordem de produção.
+  \item \textbf{MES} organiza a produção e define quais máquinas utilizar.
+  \item \textbf{SCADA} mostra o processo em tempo real ao operador.
+  \item \textbf{CLP} controla o enchimento e a tampagem das garrafas.
+  \item \textbf{Sensores} detectam o nível de líquido em cada garrafa.
+  \item \textbf{Atuadores} param o enchimento quando o limite é atingido.
+\end{enumerate}
+
+Em uma situação de problema --- sensor detecta garrafa mal posicionada ---, o CLP para a máquina, o SCADA mostra o alarme, o MES registra a falha e o ERP recebe o impacto na produção. Todos os níveis trabalham de forma coordenada.
+
+\section{Conclusão}
+
+A Pirâmide da Automação demonstra como uma indústria funciona de forma organizada e integrada. Cada nível tem uma função específica: os níveis mais baixos executam, os intermediários controlam e os superiores decidem. Sem essa estrutura, os sistemas ficam isolados e a produção perde eficiência. Com ela, a indústria funciona como um sistema único, conectado e inteligente, capaz de responder rapidamente a mudanças e problemas \cite{schwab2016}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

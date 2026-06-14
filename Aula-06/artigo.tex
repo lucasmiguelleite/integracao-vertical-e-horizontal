@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{abntex2cite}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Sistemas ERP na Integração Industrial}}\\[1cm]
+  Sorocaba -- 06/03/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo analisa o papel dos sistemas ERP (\textit{Enterprise Resource Planning}) como integradores estratégicos na indústria, posicionando-os no nível mais alto da Pirâmide da Automação. O estudo aborda a definição e as características principais dos ERPs, a estrutura de módulos (financeiro, compras, estoque, produção, vendas e recursos humanos) e, sobretudo, a integração automática entre esses módulos. Através de uma tabela detalhada de eventos e impactos cruzados, demonstra-se como um único evento em um setor gera efeitos em cascata por toda a organização. O exemplo prático de uma fábrica de bebidas ilustra o fluxo completo desde o pedido do cliente até o retorno dos indicadores de produção. Conclui-se que o ERP funciona como o sistema nervoso da organização, consolidando a integração vertical ao conectar operação e estratégia de forma contínua.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} ERP. Integração de Sistemas. Gestão Empresarial. Módulos ERP. PCP.
+
+\newpage
+
+\section{Introdução}
+
+Na evolução da disciplina de Integração Vertical e Horizontal, compreendeu-se progressivamente o papel de cada nível da automação: redes industriais para comunicação, SDCD/CLP para controle, SCADA para supervisão e MES para execução. Chega-se agora ao nível mais alto da pirâmide: o ERP (\textit{Enterprise Resource Planning}) \cite{caiçara2015}. O ERP é responsável por integrar e gerenciar toda a empresa --- produção, logística, financeiro, compras, vendas e recursos humanos --- transformando dados operacionais em decisões estratégicas.
+
+\section{Conceito de ERP}
+
+\subsection{Definição}
+
+O ERP é um sistema integrado de gestão que centraliza informações e processos de toda a organização em uma única plataforma. Possui base de dados única, módulos integrados, atualização em tempo real e padronização de processos, o que evita retrabalho, inconsistência de dados e falhas de comunicação entre setores \cite{santos2024}.
+
+\subsection{ERP como Sistema Integrador}
+
+Sem ERP, os setores operam de forma isolada, com planilhas desconectadas e decisões imprecisas. Com ERP, a empresa adquire visão global, dados consistentes e capacidade de resposta rápida. O ERP atua no nível estratégico e gerencial, respondendo a perguntas fundamentais: o que produzir? Quando? Quanto? A que custo? \cite{groover2011}.
+
+\section{Módulos de um ERP}
+
+\subsection{Principais Módulos}
+
+\begin{itemize}
+  \item \textbf{Financeiro:} Contas a pagar/receber, fluxo de caixa, faturamento.
+  \item \textbf{Compras:} Gestão de fornecedores, pedidos de compra, controle de suprimentos.
+  \item \textbf{Estoque:} Controle de materiais, entrada e saída, inventário.
+  \item \textbf{Produção (PCP):} Planejamento da produção, ordens de produção, controle de capacidade.
+  \item \textbf{Vendas:} Pedidos de clientes, faturamento, histórico de vendas.
+  \item \textbf{Recursos Humanos:} Folha de pagamento, gestão de colaboradores, avaliação de desempenho.
+\end{itemize}
+
+\subsection{Integração entre Módulos}
+
+A principal força de um ERP está na integração automática entre módulos, permitindo que uma ação em um setor gere impactos imediatos em toda a empresa. A Tabela~\ref{tab:integracao} demonstra essa dinâmica.
+
+\begin{table}[htb]
+  \centering
+  \caption{Integração entre módulos do ERP: eventos e impactos cruzados.}
+  \label{tab:integracao}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{p{4cm}p{3cm}p{4cm}p{4.5cm}}
+    \toprule
+    \textbf{Evento} & \textbf{Módulo de Origem} & \textbf{Módulos Impactados} & \textbf{Resultado} \\
+    \midrule
+    Venda realizada & Vendas & Financeiro, Estoque & Geração de receita e baixa no estoque \\
+    Produção iniciada & Produção (PCP) & Estoque & Consumo de matéria-prima \\
+    Produção finalizada & Produção & Estoque, Vendas & Entrada de produto acabado \\
+    Estoque mínimo atingido & Estoque & Compras & Geração de pedido de compra \\
+    Pedido de compra aprovado & Compras & Financeiro & Contas a pagar \\
+    Alocação de operador & RH & Produção & Atualização de custo operacional \\
+    Atraso na produção & Produção & Vendas, Logística & Reprogramação de entrega \\
+    Devolução de produto & Vendas & Estoque, Financeiro & Ajuste de estoque e estorno \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+Nenhum módulo funciona isoladamente: um único evento pode impactar vários setores simultaneamente, e a informação flui automaticamente pela empresa \cite{cardoso2021}.
+
+\section{Exemplo Prático: Fábrica de Bebidas}
+
+O fluxo completo ilustra a integração vertical proporcionada pelo ERP:
+
+\begin{enumerate}
+  \item \textbf{Pedido:} Cliente solicita 10.000 unidades. O ERP registra a venda, calcula o custo e verifica o estoque.
+  \item \textbf{Planejamento:} O ERP gera a ordem de produção e a envia ao MES.
+  \item \textbf{Execução:} O MES distribui a produção e planeja a utilização das máquinas.
+  \item \textbf{Produção:} CLPs e sensores executam o processo industrial.
+  \item \textbf{Monitoramento:} O SCADA exibe dados em tempo real.
+  \item \textbf{Retorno:} O ERP recebe dados de produção realizada, custos, tempo e outros indicadores.
+\end{enumerate}
+
+\section{Conclusão}
+
+O ERP consolida a integração da empresa ao transformar dados operacionais em informação gerencial útil. Seu principal valor reside na capacidade de alinhar planejamento e execução, dar visibilidade do negócio como um todo e permitir respostas rápidas a mudanças. Na prática, o ERP garante que o que foi planejado realmente aconteça --- e que possa ser ajustado com base em dados reais. Assim, o ERP fecha o ciclo da integração vertical, conectando operação e estratégia de forma contínua \cite{schwab2016}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}
