@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+% Pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{abntex2cite}
+
+% Formatação
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Visão Geral e Fundamentos da Integração de Sistemas Industriais}}\\[1cm]
+  Sorocaba -- 06/02/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+A presente atividade aborda os fundamentos da disciplina de Integração Vertical e Horizontal, contextualizando a integração de sistemas como requisito estratégico para a indústria moderna. O estudo analisa a evolução dos ambientes fabris, desde a automação tradicional até a digitalização e interconectividade, destacando o papel da informação como ativo produtivo. Adicionalmente, apresenta-se um estudo de caso da WEG S.A., analisando a arquitetura de soluções industriais da empresa, incluindo sensoriamento IoT (WEG Motor Scan), acionamentos inteligentes, integração de sistemas via MES e ERP, e a gestão de dados industriais através das plataformas WEGnology e BirminD. Conclui-se que a WEG consolidou uma transição estratégica de fornecedora de componentes para provedora de ecossistemas digitais integrados.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} Integração de Sistemas. Indústria 4.0. WEG. IoT Industrial. MES. ERP.
+
+\newpage
+
+\section{Introdução}
+
+A primeira aula da disciplina de Integração Vertical e Horizontal estabeleceu a integração de sistemas não apenas como um diferencial técnico, mas como um requisito estratégico para a indústria moderna. A indústria deixou de ser um conjunto de ilhas isoladas (produção, logística, gestão) para se tornar um ecossistema conectado, no qual automação, TI e gestão convergem para criar ambientes produtivos orientados a dados \cite{groover2011}.
+
+A disciplina não tem como foco a programação detalhada de equipamentos específicos, mas sim a compreensão arquitetural e sistêmica. As competências-chave desenvolvidas incluem a visão sistêmica (enxergar o todo) e o pensamento integrado, visando analisar arquiteturas, compreender protocolos de comunicação e relacionar as demandas de TI com as de TA (Tecnologia de Automação).
+
+\section{O Ambiente Industrial Moderno}
+
+A evolução dos ambientes fabris marca a transição da automação tradicional (foco na máquina) para a digitalização e integração. Os dados fluem continuamente entre o chão de fábrica (sensores e atuadores), os sistemas de controle (supervisão) e os sistemas de gestão (estratégia). A capacidade de transformar dados brutos em informação útil é o que gera valor, permitindo redução de custos e aumento de eficiência. A competitividade industrial depende da eliminação de barreiras entre as camadas operacionais e gerenciais \cite{moraes2007}.
+
+\section{Estrutura da Disciplina}
+
+O curso foi estruturado em quatro fases progressivas para a construção do conhecimento:
+
+\begin{enumerate}
+  \item \textbf{Fundamentos Tecnológicos:} Redes industriais, SDCD e Pirâmide de Automação.
+  \item \textbf{Integração de Sistemas:} Conceitos centrais de Integração Vertical (chão de fábrica à gestão) e Horizontal (cadeia de valor).
+  \item \textbf{Sistemas Corporativos:} O papel do ERP, do MES e a convergência IT/OT.
+  \item \textbf{Dados e Nuvem:} Business Intelligence (BI), tratamento de dados industriais e serviços em nuvem.
+\end{enumerate}
+
+\section{Estudo de Caso: Arquitetura de Soluções da WEG}
+
+A WEG, multinacional brasileira consolidada na fabricação de equipamentos eletroeletrônicos, passou por uma transformação significativa, migrando de fornecedora de hardware puro para provedora de soluções digitais completas para a Indústria 4.0 \cite{schwab2016}.
+
+\subsection{Sensoriamento e IoT}
+
+O principal componente de entrada de dados no ecossistema é o WEG Motor Scan, um sensor retrofit (acoplável a motores antigos ou novos) que monitora vibração, temperatura e tempo de funcionamento. Utiliza comunicação Bluetooth e Gateway para envio de dados à nuvem, permitindo a manutenção preditiva por meio da captura do espectro de vibração para identificar desbalanceamentos e desalinhamentos mecânicos antes da falha.
+
+\subsection{Acionamentos e Controle}
+
+Os Inversores de Frequência (série CFW) e Soft-Starters (série SSW) da WEG atuam como reguladores de potência e sensores ativos. Os inversores modernos possuem PLCs incorporados ou cartões de expansão que permitem processamento local de lógica, funcionando como camada de automação distribuída.
+
+\subsection{Protocolos e Interoperabilidade}
+
+A integração segue o modelo de pirâmide de automação com forte tendência ao achatamento via IoT. A WEG utiliza padrões abertos de comunicação: redes de campo (Profibus DP, DeviceNet, CANopen), Ethernet Industrial (Profinet, Ethernet/IP, Modbus-TCP) e OPC UA para integração moderna entre hardware de controle e sistemas SCADA ou MES.
+
+\subsection{Edge Computing}
+
+A WEG implementa soluções de Edge Computing através de Gateways IoT, permitindo que dados críticos sejam processados localmente para latência mínima, enquanto apenas dados agregados ou alarmes são enviados para a nuvem, otimizando banda e armazenamento.
+
+\subsection{Sistemas MES e Integração IT/OT}
+
+Com a aquisição da PPI-Multitask, a WEG oferece sistemas MES que realizam o apontamento da produção em tempo real, coletando dados de PLCs e sensores (OEE) e eliminando o apontamento manual. O MES atua como middleware industrial, traduzindo sinais elétricos das máquinas em ordens de produção compreensíveis para o ERP. A integração com sistemas corporativos (SAP, TOTVS, Oracle) é realizada via APIs, permitindo que uma ordem de venda seja automaticamente desdobrada em ordens de produção \cite{caiçara2015}.
+
+\subsection{Dados Industriais e Analytics}
+
+A gestão de dados culmina na plataforma WEGnology e no WEG Motion Fleet Management (MFM), solução em nuvem com dashboards de status de saúde dos motores. Com a aquisição da BirminD, a WEG integrou Machine Learning para análise preditiva avançada, incluindo a previsão da Vida Útil Remanescente (RUL) de ativos e otimização de setpoints para economia de energia e redução de refugo.
+
+\section{Conclusão}
+
+A análise demonstra que a WEG consolidou uma estratégia madura de Indústria 4.0, superando a barreira de hardware ao integrar verticalmente toda a cadeia de valor: do sensor (Motor Scan) e atuador (Inversor), passando pelo controle (PLC) e camada de borda (Gateway), até o software de gestão (MES) e análise de dados em nuvem (WEGnology/BirminD). A arquitetura favorece a modularidade e a escalabilidade, permitindo que indústrias de diversos portes digitalizem suas operações sem necessidade de substituição total do parque instalado \cite{santos2024}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+% Pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{abntex2cite}
+
+% Formatação
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Análise de Aplicação de Sistema Digital de Controle Distribuído (SDCD)}}\\[1cm]
+  Sorocaba -- 20/03/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo analisa a aplicação de um Sistema Digital de Controle Distribuído (SDCD) em um processo contínuo, com base na arquitetura tecnológica composta por Sensor de Temperatura, ESP32, protocolo MQTT, Servidor, Aplicativo Mobile, Dashboard e interface de Gestão da Fábrica. O estudo detalha o papel de cada componente no sistema, o fluxo de dados desde o nível de campo até o nível de supervisão, as decisões e ações possíveis com base nas informações centralizadas, e as vantagens do uso de sistemas distribuídos em comparação aos modelos centralizados tradicionais. Conclui-se que a arquitetura proposta oferece eliminação de pontos únicos de falha, redução de cabeamento, confiabilidade e escalabilidade, representando uma evolução significativa em relação aos sistemas de controle centralizados.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} SDCD. Controle Distribuído. MQTT. ESP32. IoT Industrial. SCADA.
+
+\newpage
+
+\section{Introdução}
+
+Os Sistemas Digitais de Controle Distribuído (SDCD) representam uma evolução fundamental no contexto da automação industrial, substituindo os modelos centralizados tradicionais por arquiteturas em que o processamento e a inteligência são distribuídos ao longo da rede, próximos aos processos controlados \cite{moraes2007}. Este artigo analisa a aplicação de um SDCD com base na seguinte arquitetura tecnológica:
+
+\begin{center}
+  Sensor de Temperatura $\rightarrow$ ESP32 $\rightarrow$ MQTT $\rightarrow$ Servidor $\rightarrow$ Aplicativo Mobile $\rightarrow$ Dashboard $\rightarrow$ Gestão da Fábrica
+\end{center}
+
+\section{Papel de Cada Componente do Sistema}
+
+\subsection{Sensor de Temperatura}
+
+O sensor de temperatura atua no nível de campo. Sua função é monitorar a grandeza física (temperatura) do ambiente ou equipamento industrial e coletar essas informações brutas para o sistema. É o ponto inicial de entrada de dados na cadeia de controle \cite{lara2021}.
+
+\subsection{ESP32 (Controlador Distribuído)}
+
+O ESP32 atua como o controlador inteligente localizado próximo ao processo controlado. Ele recebe os sinais analógicos/digitais do sensor de temperatura, realiza o processamento local das informações e atua como gateway de conectividade. Esta é a essência do controle distribuído: a inteligência reside próximo ao campo, não em um painel central distante \cite{albuquerque2009}.
+
+\subsection{Protocolo MQTT}
+
+O protocolo MQTT (\textit{Message Queuing Telemetry Transport}) representa a camada de comunicação digital do sistema. É o protocolo de rede responsável por empacotar e transmitir os dados lidos pelo ESP32 de maneira leve, rápida e confiável até o servidor central. O MQTT opera no modelo publicador/assinante, ideal para redes industriais com restrição de banda e necessidade de baixa latência.
+
+\subsection{Servidor}
+
+O servidor atua como o núcleo de recepção, armazenamento e roteamento das informações recebidas dos controladores na rede de alta velocidade. É responsável por manter a base de dados histórica e atual que alimenta as interfaces de supervisão.
+
+\subsection{Aplicativo Mobile e Dashboard (Nível de Supervisão)}
+
+O aplicativo mobile e o dashboard operam como a Interface Homem-Máquina (IHM) e sistema SCADA (\textit{Supervisory Control and Data Acquisition}) na sala de controle ou dispositivo remoto. Eles traduzem os dados armazenados no servidor em gráficos, indicadores e alertas visuais compreensíveis para os operadores e gestores.
+
+\section{Fluxo de Dados no Sistema}
+
+O fluxo de dados ocorre de maneira estruturada, partindo do nível de campo até o nível de supervisão, seguindo as etapas \cite{groover2011}:
+
+\begin{enumerate}
+  \item \textbf{Coleta:} O sensor captura as variações térmicas do ambiente físico de forma ininterrupta.
+  \item \textbf{Processamento Local e Publicação:} O ESP32 lê os dados elétricos, converte em valores digitais compreensíveis (por exemplo, graus Celsius) e utiliza o protocolo MQTT para publicar essas informações na rede.
+  \item \textbf{Roteamento e Armazenamento:} O Servidor recebe as mensagens MQTT de temperatura vindas do ESP32 e atualiza sua base de dados.
+  \item \textbf{Apresentação e Visualização:} O Aplicativo Mobile e o Dashboard solicitam (ou assinam) esses dados do servidor e atualizam as telas do usuário final. Dessa forma, a gestão da fábrica visualiza o status em tempo real de forma integrada.
+\end{enumerate}
+
+\section{Decisões e Ações Baseadas no Dashboard}
+
+A partir do monitoramento centralizado integrado, a gestão pode tomar diversas ações estratégicas e operacionais:
+
+\subsection{Controle de Processos}
+
+É possível identificar desvios na temperatura ideal de produção e enviar um comando remoto de volta (através da rede MQTT) para que o controlador ative um atuador, como o acionamento de um sistema de resfriamento. Isso demonstra a capacidade de controle bidirecional do sistema.
+
+\subsection{Prevenção de Falhas e Manutenção}
+
+A observação de padrões anormais de aquecimento (tendências) pode indicar desgaste ou atrito mecânico de um equipamento, permitindo o agendamento de manutenção preditiva antes que a máquina quebre. Esta abordagem migrada da manutenção preventiva baseada em tempo para a manutenção preditiva baseada em condição representa um ganho significativo em disponibilidade \cite{santos2024}.
+
+\subsection{Segurança e Monitoramento}
+
+É possível configurar alertas visuais e sonoros no aplicativo caso a temperatura atinja níveis críticos, permitindo o desligamento de emergência da linha ou a evacuação da área. Esta funcionalidade é essencial para a segurança do trabalho em ambientes industriais com processos contínuos.
+
+\section{Vantagens do Sistema Distribuído}
+
+A implementação da arquitetura de SDCD proposta traz melhorias significativas em comparação aos sistemas de controle centralizados tradicionais \cite{caiçara2015}:
+
+\subsection{Eliminação de Pontos Únicos de Falha}
+
+O processamento ocorre de forma inteligente e local no ESP32. Se o servidor ou a rede cair, o ESP32 ainda pode estar programado para desligar a máquina automaticamente em caso de superaquecimento extremo, garantindo segurança mesmo sem comunicação com o nível superior.
+
+\subsection{Redução Drástica de Cabeamento}
+
+Como a comunicação via MQTT pode utilizar redes modernas (e muitas vezes sem fio, no caso de microcontroladores como o ESP32), elimina-se o alto custo de materiais e mão de obra para interligar fisicamente todos os sensores do chão de fábrica até um único painel na sala de controle.
+
+\subsection{Confiabilidade e Redundância}
+
+Sistemas distribuídos permitem múltiplos caminhos de comunicação. Se um nó falhar, os demais podem continuar operando, e a topologia de rede pode ser projetada com rotas alternativas para garantir a continuidade do monitoramento \cite{lugli2009}.
+
+\subsection{Escalabilidade}
+
+É muito mais simples adicionar novos sensores e microcontroladores (ESP32) à rede MQTT existente para monitorar outras partes da fábrica, sem a necessidade de paralisar a produção contínua do processo. Cada novo nó é independente e se integra à rede de forma modular.
+
+\section{Conclusão}
+
+A análise da arquitetura de SDCD proposta demonstra que os sistemas de controle distribuído representam uma evolução significativa em relação aos modelos centralizados. A combinação de microcontroladores inteligentes (ESP32), protocolos leves (MQTT) e interfaces de supervisão modernas (dashboards e aplicativos mobile) cria um ecossistema robusto, escalável e seguro para o monitoramento e controle de processos industriais contínuos.
+
+As vantagens --- eliminação de pontos únicos de falha, redução de cabeamento, confiabilidade e escalabilidade --- posicionam essa arquitetura como uma solução viável tanto para indústrias que buscam modernizar sua base instalada quanto para novas instalações que desejam partir diretamente para o paradigma da Indústria 4.0 \cite{schwab2016}.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

@@ -1,0 +1,107 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+% Pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{abntex2cite}
+
+% Formatação
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Relatório Técnico de Diagnóstico Operacional e Planejamento Estratégico para Integração Industrial 4.0: Estudo de Caso Klabin S.A. e Marfrig S.A.}}\\[1cm]
+  Sorocaba -- 13/02/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este relatório técnico apresenta um diagnóstico operacional e propostas de integração tecnológica para as empresas Klabin S.A. e Marfrig S.A., fundamentado nos princípios da Indústria 4.0 e na norma ISA-95. O estudo identifica os processos críticos de cada organização --- a gestão florestal e de caldeiras na Klabin e a cadeia de frio e rastreabilidade na Marfrig --- correlacionando-os aos desafios de sincronização produtiva e às exigências de ESG. A metodologia baseia-se na análise de integração vertical (do chão de fábrica à gestão estratégica via MES/ERP) e integração horizontal (conexão entre fornecedores, logística e clientes). As propostas visam à automação de fluxos, visibilidade da cadeia de suprimentos e otimização de recursos, utilizando tecnologias como IoT, Edge Computing e Blockchain para elevar a eficiência operacional e a transparência na cadeia de valor.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} Integração Industrial. Indústria 4.0. Klabin. Marfrig. Cadeia de Valor.
+
+\newpage
+
+\section{Introdução}
+
+O presente relatório analisa o contexto operacional de duas gigantes industriais brasileiras: Klabin S.A. (setor de papel e celulose) e Marfrig S.A. (setor de alimentos/proteína bovina). Ambas operam em cadeias complexas que exigem rigoroso controle de qualidade, sustentabilidade e eficiência logística. O objetivo é diagnosticar o cenário atual para propor um plano de integração tecnológica fundamentado nos conceitos de integração vertical e horizontal da norma ISA-95 \cite{isa95}.
+
+\section{Conceitos de Integração}
+
+\subsection{Integração Vertical}
+
+A integração vertical é a conexão de dados dentro da fábrica, desde o chão de fábrica (sensores, CLPs), passando pelo SCADA (supervisório), MES (Gerenciamento de Execução de Manufatura) até o ERP (Planejamento de Recursos Empresariais). O objetivo é que a decisão gerencial (``Vender mais'') ajuste automaticamente a máquina (``Produzir mais'') \cite{groover2011}.
+
+\subsection{Integração Horizontal}
+
+A integração horizontal é a conexão da cadeia de valor, envolvendo a troca de dados digitais entre fornecedores, a própria indústria, centros de distribuição e clientes finais. O objetivo é a visibilidade total da cadeia (Supply Chain Visibility) \cite{caiçara2015}.
+
+\section{Perfil e Processos Industriais}
+
+\subsection{Klabin S.A.}
+
+A Klabin é a maior produtora e exportadora de papéis para embalagens do Brasil. Seus processos industriais abrangem desde a silvicultura (plantio e colheita de florestas) até a produção de celulose e conversão em papel e embalagens \cite{klabin2026}.
+
+\textbf{Processo crítico:} A gestão florestal de precisão e o controle das caldeiras e máquinas de papel (processo contínuo).
+
+\textbf{Desafio tecnológico:} Sincronizar a colheita florestal com a demanda das máquinas de papel para minimizar estoques intermediários e otimizar a logística de madeira.
+
+\subsection{Marfrig S.A.}
+
+A Marfrig é uma das companhias líderes globais em carne bovina e a maior produtora de hambúrgueres do mundo. Seu processo envolve a compra de gado, abate, desossa, processamento e distribuição \cite{marfrig2026}.
+
+\textbf{Processo crítico:} A cadeia de frio (controle de temperatura) e a rastreabilidade do animal (origem sanitária e ambiental).
+
+\textbf{Desafio tecnológico:} Garantir a rastreabilidade ponta a ponta (do pasto ao prato) para atender exigências de ESG e segurança alimentar.
+
+\section{Análise de Integração Empresarial}
+
+Com base nos modelos de integração estudados, a análise a seguir detalha como a organização promove a integração total e os impactos gerados.
+
+\subsection{Promoção da Integração da Organização como um Todo}
+
+As empresas promovem a integração total ao quebrar silos de informação. A integração não é apenas tecnológica, mas organizacional: o uso de protocolos de comunicação padronizados permite que um pedido de venda no ERP gere automaticamente uma ordem de produção no MES. A integração horizontal permite que a empresa visualize o estoque do fornecedor e a demanda do cliente final simultaneamente.
+
+\subsection{Impactos no Posicionamento na Cadeia de Valor}
+
+Empresas integradas conseguem oferecer maior rastreabilidade e prazos de entrega mais confiáveis. Na integração vertical empresarial, ao controlar desde a matéria-prima até a distribuição, a empresa ganha autonomia e reduz riscos de interrupção no fornecimento. O posicionamento deixa de ser apenas por custo e passa a ser por agilidade e resiliência.
+
+\subsection{Coordenação dos Processos}
+
+A integração garante que a logística esteja pronta no exato momento em que a produção finaliza um lote, minimizando o tempo de espera e custos de armazenagem (estoque zero ou Just-in-Time). A automação do fluxo de dados elimina erros de preenchimento manual entre o administrativo e a operação \cite{cardoso2021}.
+
+\subsection{Tomada de Decisão Estratégica}
+
+A diretoria não decide com base em relatórios do mês passado, mas em dados consolidados em tempo real. O uso de Big Data e Analytics sobre os sistemas integrados permite antecipar quebras de máquinas ou picos de demanda, permitindo uma postura proativa em vez de reativa.
+
+\section{Conclusão}
+
+A análise técnica realizada permite concluir que a implementação de estratégias de integração industrial é imperativa para a manutenção da competitividade da Klabin S.A. e da Marfrig S.A. no cenário global. A integração vertical mostra-se essencial para converter decisões estratégicas de alto nível em ajustes automáticos na operação fabril, reduzindo desperdícios e tempos de setup em processos contínuos e discretos.
+
+Simultaneamente, a integração horizontal endereça o maior desafio logístico de ambas as companhias: a visibilidade ponta a ponta. No caso da Klabin, a automação do fluxo floresta-fábrica otimiza o capital de giro imobilizado em estoques; para a Marfrig, a rastreabilidade digital assegura a conformidade ambiental e sanitária exigida pelos mercados internacionais \cite{schwab2016}.
+
+Conclui-se que a adoção de tecnologias habilitadoras, como sensores inteligentes, sistemas MES e plataformas de dados compartilhados, não apenas aumenta a eficiência produtiva, mas estabelece uma infraestrutura resiliente capaz de responder rapidamente às oscilações do mercado e às demandas de sustentabilidade. A transição para esse modelo requer, contudo, um planejamento coordenado entre TI e Operações para superar silos informacionais e garantir a segurança cibernética dos dados industriais.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

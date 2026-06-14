@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+% Pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{abntex2cite}
+
+% Formatação
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.3cm}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large ESCOLA E FACULDADE DE TECNOLOGIA SENAI GASPAR RICARDO JÚNIOR}\\
+  \textbf{Desenvolvimento de Sistemas}\\[1cm]
+  \textbf{\Large Lucas Miguel Leite}\\[0.5cm]
+  \textbf{Professor: Deivison Takatu}\\[2cm]
+  \textbf{\LARGE\textbf{Projeto de Rede Industrial: Fábrica de Tijolos Ecológicos}}\\[1cm]
+  Sorocaba -- 20/02/2026
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+  \textbf{RESUMO}
+\end{center}
+
+Este artigo apresenta o projeto de uma rede industrial para uma fábrica de tijolos ecológicos, incluindo o levantamento técnico e plano orçamentário para a implantação da infraestrutura de comunicação e automação. O projeto abrange a especificação de dispositivos (CLP, switches industriais, sensores de campo, sistema SCADA/IHM e cabeamento), análise de viabilidade técnica e econômica, e a descrição da arquitetura de rede proposta. A solução utiliza protocolos baseados em Ethernet (Ethernet/IP e Modbus TCP) para garantir escalabilidade e compatibilidade com futuras integrações a sistemas corporativos (ERP). O custo total estimado é de R\$ 23.000,00, com retorno do investimento previsto entre 8 e 12 meses, justificado pela redução de falhas na produção, otimização do tempo de máquina e garantia de rastreabilidade dos lotes.
+
+\vspace{0.5cm}
+\textbf{Palavras-chave:} Rede Industrial. CLP. SCADA. Automação. Tijolos Ecológicos.
+
+\newpage
+
+\section{Introdução}
+
+A automação industrial e a integração de sistemas representam fatores determinantes para a competitividade e eficiência operacional de indústrias de qualquer porte. Neste contexto, o presente projeto elabora um plano orçamentário e técnico para a implantação de uma rede industrial em uma indústria de produção de tijolos ecológicos, abrangendo a infraestrutura de comunicação e automação necessária para monitoramento e controle dos processos produtivos \cite{albuquerque2009}.
+
+\section{Levantamento Técnico e Plano Orçamentário}
+
+A Tabela~\ref{tab:orcamento} apresenta a identificação dos dispositivos necessários para compor a rede industrial, incluindo especificações técnicas, fornecedores, cotação de valores e prazos de entrega.
+
+\begin{table}[htb]
+  \centering
+  \caption{Plano orçamentário de equipamentos para a rede industrial.}
+  \label{tab:orcamento}
+  \begin{tabular}{p{3cm}p{4cm}p{2.5cm}r r p{2cm}}
+    \toprule
+    \textbf{Equipamento} & \textbf{Especificação} & \textbf{Fornecedor} & \textbf{Valor} & \textbf{Qtd} & \textbf{Prazo} \\
+    \midrule
+    CLP (CPU) & Módulo CPU com portas Ethernet/IP, suporte a Modbus TCP, IP20 & Siemens / Rockwell & 4.500 & 1 & 15 dias \\
+    \addlinespace
+    Switch Industrial & Gerenciável 8 portas RJ45, trilho DIN, redundância, IP30 & Phoenix Contact / Moxa & 2.800 & 2 & 10 dias \\
+    \addlinespace
+    Sensores de Campo & Umidade e temperatura, interface 4-20mA ou IO-Link & SICK / Balluff & 850 & 4 & 7 dias \\
+    \addlinespace
+    SCADA/IHM & Licença SCADA 500 tags + IHM Touchscreen 10'' IP65 & Elipse / WEG & 8.000 & 1 & 20 dias \\
+    \addlinespace
+    Cabeamento & Cat5e/Cat6 blindados (STP), conectores M12/RJ45 industriais & Furukawa Industrial & 1.500 & 1 & 5 dias \\
+    \midrule
+    \multicolumn{4}{r}{\textbf{Custo Total Estimado}} & \multicolumn{2}{c}{\textbf{R\$ 23.000,00}} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Adequação e Escalabilidade}
+
+Os equipamentos selecionados foram escolhidos pela adequação ao ambiente industrial (resistência a poeira, vibração e ruído elétrico presentes na fábrica de tijolos). A adoção de protocolos baseados em Ethernet (como Ethernet/IP ou Profinet) garante a escalabilidade da solução e a fácil compatibilidade com integrações futuras aos sistemas corporativos de TI, como ERPs \cite{lugli2009}.
+
+\section{Análise de Viabilidade Técnica e Econômica}
+
+\subsection{Custo-Benefício}
+
+O investimento inicial de R\$ 23.000,00 é justificado pela drástica redução de falhas na mistura e prensagem dos tijolos ecológicos. A automação reduz o desperdício de matéria-prima e padroniza a qualidade do bloco \cite{cardoso2021}.
+
+\subsection{Possibilidade de Expansão Futura}
+
+A escolha de switches gerenciáveis e um CLP modular permite que a fábrica adicione novas esteiras ou prensas no futuro sem necessidade de descartar o equipamento atual, garantindo proteção do investimento \cite{lara2021}.
+
+\subsection{Riscos Envolvidos}
+
+O principal risco técnico é a interferência eletromagnética (ruído) nos cabos de rede devido aos motores das prensas. Isso é mitigado pelo uso de cabeamento blindado aterrado corretamente. Optou-se por protocolos abertos (como Modbus TCP) e hardware de fabricantes com ampla rede de distribuição no Brasil para evitar o aprisionamento tecnológico (\textit{vendor lock-in}).
+
+\subsection{Retorno do Investimento}
+
+Estima-se que a redução de quebras de produção e otimização do tempo de máquina paguem o sistema em aproximadamente 8 a 12 meses. Os benefícios para o negócio incluem monitoramento em tempo real, rastreabilidade dos lotes de tijolos, menor tempo de parada (\textit{downtime}) e maior segurança para os operadores.
+
+\section{Arquitetura de Rede Proposta}
+
+A estrutura topológica da rede proposta organiza-se em quatro camadas, seguindo o modelo hierárquico da pirâmide de automação \cite{moraes2007}:
+
+\begin{enumerate}
+  \item \textbf{Rede Corporativa (TI):} Conectada através de um roteador/firewall (Gateway) para isolar o tráfego e proteger o chão de fábrica, permitindo que a gerência acesse os relatórios de produção com segurança.
+  \item \textbf{Nível de Supervisão (SCADA/IHM):} O computador com o software SCADA e a IHM local no painel ficam conectados ao Switch Industrial Principal na sala de controle.
+  \item \textbf{Nível de Controle (CLP):} O Switch Industrial Principal se conecta ao CLP, que processa toda a lógica da máquina de tijolos.
+  \item \textbf{Nível de Campo:} O CLP interage diretamente com as válvulas, motores da prensa e os sensores de mistura através de módulos de Entradas/Saídas (I/O), utilizando cabeamento industrial robusto.
+\end{enumerate}
+
+Esta separação em camadas garante a possibilidade de expansão futura da infraestrutura e a modularidade do sistema \cite{senai2014}.
+
+\section{Conclusão}
+
+O projeto de rede industrial para a fábrica de tijolos ecológicos demonstra a viabilidade técnica e econômica da automação em um contexto de produção sustentável. A arquitetura proposta, baseada em protocolos abertos e equipamentos escaláveis, permite monitoramento em tempo real, rastreabilidade e expansão modular. O investimento de R\$ 23.000,00 apresenta retorno estimado entre 8 e 12 meses, com benefícios significativos em redução de desperdício, padronização da qualidade e segurança operacional.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+
+\end{document}

@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{abntex2}
+\documentclass[12pt,a4paper,oneside]{abntex2}
 
 % Pacotes de codificação e linguagem
 \usepackage[utf8]{inputenc}
@@ -9,15 +9,33 @@
 % Pacotes de formatação
 \usepackage{geometry}
 \geometry{a4paper, margin=3cm, top=3cm, bottom=2cm}
-\usepackage{setspace}
 \usepackage{indentfirst}
 \usepackage{times}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{abntex2cite}
 
-% Espaçamento entre linhas
-\onehalfspacing
+% Configurar profundidade da numeração
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Remover páginas em branco entre capítulos
+\makeatletter
+\@openrightfalse
+\makeatother
+
+% Reduzir tamanho da fonte dos títulos dos capítulos
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace{0cm}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum\c@secnumdepth>\m@ne
+      \Large\bfseries \thechapter. \space
+    \fi
+    \Large\bfseries #1\par\nobreak
+    \vspace{1.5em}%
+  }}
+\makeatother
 
 % Dados do trabalho
 \titulo{Relatório Técnico: Arquitetura de Soluções Industriais, Integração e Dados na WEG}
@@ -34,9 +52,6 @@
 % Professor
 \newcommand{\professor}{Professor: Deivison Takatu}
 
-% Palavras-chave
-\palavraschave{WEG, Indústria 4.0, Integração de Sistemas, IoT Industrial, Manufatura Digital.}
-
 \begin{document}
 
 % Capa
@@ -46,12 +61,18 @@
 \imprimirfolhaderosto
 
 % Resumo
-\begin{resumao}
+\begin{resumo}
+  \begin{center}
+    \textbf{RESUMO}
+  \end{center}
+
   O presente relatório técnico tem como objetivo analisar a arquitetura de soluções industriais da WEG, com foco nos fundamentos tecnológicos, na integração de sistemas e na gestão de dados no contexto da Indústria 4.0. A metodologia empregada baseia-se na revisão técnica das plataformas de hardware e software da companhia, investigando a convergência entre as tecnologias de operação (OT) e de informação (IT). O estudo descreve os mecanismos de sensoriamento e IoT, exemplificados pelo uso do sensor WEG Motor Scan e drives inteligentes, bem como a aplicação de Edge Computing para o processamento de dados na borda. São abordadas as estratégias de integração de sistemas corporativos através de softwares MES (Manufacturing Execution Systems), provenientes da aquisição da PPI-Multitask, que permitem a conexão vertical entre o chão de fábrica e sistemas ERP. Além disso, examina-se o tratamento de dados industriais massivos via plataforma WEGnology e a aplicação de Inteligência Artificial para manutenção preditiva com as soluções da BirminD. Conclui-se que a WEG consolidou uma transição estratégica de fornecedora de componentes para provedora de ecossistemas digitais integrados, oferecendo soluções escaláveis que aumentam a eficiência operacional e a confiabilidade dos ativos industriais.
 
   \vspace{1cm}
   \textbf{Palavras-chave:} WEG. Indústria 4.0. Integração de Sistemas. IoT Industrial. Manufatura Digital.
-\end{resumao}
+\end{resumo}
+
+\newpage
 
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
@@ -59,17 +80,17 @@
 \newpage
 
 % Conteúdo Principal
-\section{INTRODUÇÃO}
+\chapter{INTRODUÇÃO}
 
 A WEG, multinacional brasileira consolidada na fabricação de equipamentos eletroeletrônicos, passou por uma transformação significativa na última década, migrando de uma fornecedora de hardware puro (motores e tintas) para uma provedora de soluções digitais completas para a Indústria 4.0.
 
 O objetivo deste relatório é analisar os fundamentos tecnológicos que compõem o ecossistema digital da WEG, detalhando como a empresa realiza a integração de sistemas, gerencia dados industriais e conecta o chão de fábrica aos sistemas corporativos. A análise baseia-se na arquitetura de suas soluções recentes, como o WEG Motor Scan, a plataforma WEGnology e os sistemas de execução de manufatura (MES).
 
-\section{FUNDAMENTOS TECNOLÓGICOS}
+\chapter{FUNDAMENTOS TECNOLÓGICOS}
 
 A base tecnológica da WEG estrutura-se na capacidade de coletar dados diretamente da fonte de energia e movimento.
 
-\subsection{Sensoriamento e IoT (Internet das Coisas)}
+\section{Sensoriamento e IoT (Internet das Coisas)}
 
 O principal componente de entrada de dados no ecossistema atual é o WEG Motor Scan. Trata-se de um sensor retrofit (acoplável a motores antigos ou novos) que monitora vibração, temperatura e tempo de funcionamento.
 
@@ -78,7 +99,7 @@ O principal componente de entrada de dados no ecossistema atual é o WEG Motor S
   \item \textbf{Aplicação:} Permite a manutenção preditiva, substituindo a preventiva baseada apenas em horas de uso. O sensor capta o ``espectro de vibração'', fundamental para identificar desbalanceamentos e desalinhamentos mecânicos antes da falha \cite{weg2024}.
 \end{itemize}
 
-\subsection{Acionamentos e Controle}
+\section{Acionamentos e Controle}
 
 No nível de automação, os Inversores de Frequência (série CFW) e Soft-Starters (série SSW) atuam não apenas como reguladores de potência, mas como sensores ativos.
 
@@ -86,11 +107,11 @@ No nível de automação, os Inversores de Frequência (série CFW) e Soft-Start
   \item \textbf{Funcionalidade:} Os inversores modernos da WEG possuem PLCs (Controladores Lógicos Programáveis) incorporados ou cartões de expansão que permitem processamento local de lógica, funcionando como a camada de ``automação distribuída''.
 \end{itemize}
 
-\section{INTEGRAÇÃO DE SISTEMAS}
+\chapter{INTEGRAÇÃO DE SISTEMAS}
 
 A integração na arquitetura WEG segue o modelo de pirâmide de automação, mas com forte tendência ao ``achatamento'' via IoT.
 
-\subsection{Protocolos e Interoperabilidade}
+\section{Protocolos e Interoperabilidade}
 
 Para garantir a integração entre os equipamentos de chão de fábrica (OT) e os sistemas de gestão, a WEG utiliza padrões abertos de comunicação industrial.
 
@@ -100,15 +121,15 @@ Para garantir a integração entre os equipamentos de chão de fábrica (OT) e o
   \item \textbf{OPC UA:} Para integração moderna, o padrão OPC UA é utilizado para comunicação segura e independente de plataforma entre o hardware de controle e sistemas SCADA ou MES.
 \end{itemize}
 
-\subsection{Edge Computing}
+\section{Edge Computing}
 
 A WEG implementa soluções de Edge Computing (Computação de Borda) através de Gateways IoT (como o WEG Motor Scan Gateway). Isso permite que dados críticos sejam processados localmente para latência mínima, enquanto apenas dados agregados ou alarmes são enviados para a nuvem, otimizando o consumo de banda e armazenamento.
 
-\section{SISTEMAS CORPORATIVOS E MES}
+\chapter{SISTEMAS CORPORATIVOS E MES}
 
 Um ponto de inflexão na estratégia da WEG foi a aquisição da PPI-Multitask e, mais recentemente, o investimento em empresas de software, consolidando a divisão WEG Digital Solutions.
 
-\subsection{Sistemas MES (Manufacturing Execution Systems)}
+\section{Sistemas MES (Manufacturing Execution Systems)}
 
 Através das soluções advindas da PPI-Multitask, a WEG oferece sistemas MES que realizam o apontamento da produção em tempo real.
 
@@ -117,15 +138,15 @@ Através das soluções advindas da PPI-Multitask, a WEG oferece sistemas MES qu
   \item \textbf{Integração Vertical:} O MES atua como a camada intermediária (``middleware industrial''), traduzindo os sinais elétricos das máquinas em ordens de produção compreensíveis para o ERP.
 \end{itemize}
 
-\subsection{Integração IT/OT}
+\section{Integração IT/OT}
 
 A integração com sistemas corporativos (ERP) como SAP, TOTVS ou Oracle é realizada via APIs ou tabelas de interface. Isso permite que, quando uma ordem de venda é gerada no ERP, ela seja desdobrada automaticamente em ordens de produção no MES da WEG, que então configura os parâmetros das máquinas no chão de fábrica.
 
-\section{DADOS INDUSTRIAIS E ANALYTICS}
+\chapter{DADOS INDUSTRIAIS E ANALYTICS}
 
 A gestão de dados industriais na WEG culmina na plataforma WEGnology e no WEG Motion Fleet Management.
 
-\subsection{WEG Motion Fleet Management (MFM)}
+\section{WEG Motion Fleet Management (MFM)}
 
 É a solução em nuvem dedicada ao gerenciamento da frota de ativos industriais.
 
@@ -134,7 +155,7 @@ A gestão de dados industriais na WEG culmina na plataforma WEGnology e no WEG M
   \item \textbf{Arquitetura de Dados:} Os dados brutos (vibração nos eixos X, Y, Z) são enviados para a nuvem da WEG, onde algoritmos processam essas informações para gerar insights.
 \end{itemize}
 
-\subsection{Inteligência Artificial Industrial (BirminD)}
+\section{Inteligência Artificial Industrial (BirminD)}
 
 Com a aquisição da BirminD, a WEG integrou Inteligência Artificial (Machine Learning) aos seus dados industriais.
 
@@ -143,13 +164,14 @@ Com a aquisição da BirminD, a WEG integrou Inteligência Artificial (Machine L
   \item \textbf{Otimização:} Algoritmos analisam correlações complexas em bancos de dados industriais (Big Data) para sugerir otimizações de setpoint que economizam energia e reduzem refugo.
 \end{itemize}
 
-\section{CONCLUSÃO}
+\chapter{CONCLUSÃO}
 
 A análise dos fundamentos tecnológicos e da integração de sistemas da WEG demonstra uma estratégia madura de Indústria 4.0. A empresa superou a barreira de hardware integrando verticalmente a cadeia de valor: do sensor (Motor Scan) e do atuador (Inversor), passando pelo controle (PLC) e pela camada de borda (Gateway), até o software de gestão (MES/PPI-Multitask) e análise de dados em nuvem (WEGnology/BirminD).
 
 Conclui-se que a arquitetura da WEG favorece a modularidade e a escalabilidade, permitindo que indústrias de diversos portes digitalizem suas operações sem a necessidade de substituição total do parque instalado, utilizando sensores retrofit e plataformas agnósticas de integração.
 
 % Referências Bibliográficas
+\bibliographystyle{plain}
 \bibliography{referencias}
 
 \end{document}
